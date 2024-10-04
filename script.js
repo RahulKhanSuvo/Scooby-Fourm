@@ -83,6 +83,24 @@ const handleSearchByCategory = () => {
   loadAllPosts(searchText);
 };
 const markAsRead = (dis, count) => {
+  const markAsReadContainer = document.getElementById("markAsReadContainer");
+  handelCount();
+  const div = document.createElement("div");
+  div.innerHTML = `
+   <div class="flex gap-2 items-center rounded-lg p-3 bg-white justify-between">
+                                <h2>${dis}</h2>
+                                <p>
+                                  <i class="fas fa-heart"></i>   ${count}
+                                </p>
+                            </div>
+  `;
+  markAsReadContainer.appendChild(div);
   console.log(dis, count);
+};
+const handelCount = () => {
+  const preCount = document.getElementById("markAsReadCounter").innerText;
+  let sum = parseInt(preCount) + 1;
+  console.log(sum);
+  document.getElementById("markAsReadCounter").innerText = sum;
 };
 loadAllPosts();
